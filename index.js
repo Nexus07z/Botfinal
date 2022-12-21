@@ -11,8 +11,8 @@ const config = JSON.parse(fs.readFileSync('./config.json'))
 const { serialize, WAConnection } = Simple
 const Commands = new Collection()
 
-global.prefa = [',']
-Commands.prefix = prefa
+
+Commands.prefix = global.prefix
  
 const store = makeInMemoryStore({ logger: P().child({ level: 'silent', stream: 'store' }) })
 store.readFromFile('./session/baileys_store.json')
