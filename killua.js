@@ -54,8 +54,7 @@ module.exports = async (killua, m, commands, chatUpdate) => {
         user.expiredCheck(killua, m, _user);
         if (config.options.self && !isOwner && !m.fromMe) return
 
-        var prefix = /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#%^&.©^]/gi)[0] : Function.checkPrefix(prefa, body).prefix ?? "#"
-
+        global.prefix
         let isCmd = body.startsWith(prefix)
         let quoted = m.quoted ? m.quoted : m
         let mime = (quoted.msg || m.msg).mimetype
