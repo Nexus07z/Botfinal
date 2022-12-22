@@ -7,6 +7,8 @@ module.exports = {
     type: "downloader",
     example: "%prefix%command <url>ss",
     start: async(killua, m, { text }) => {
+        let respuestacomando = `${global.mess.musicacomando} *${prefix + command}*\n\n*Por ejemplo:*\n\n*${prefix + command} Green day Holiday Letra*`
+        if (!text) throw respuestacomando
         let search = await yts(text)
         let segmento = search.videos[Math.floor(Math.random() * search.videos.length)]
         
