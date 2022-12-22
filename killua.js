@@ -63,7 +63,7 @@ module.exports = async (killua, m, commands, chatUpdate) => {
         let args = body.trim().split(/ +/).slice(1)
         let ar = args.map((v) => v.toLowerCase())
         let text = q = args.join(" ")
-        let cmdName = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
+        let cmdName = body.slice(1).trim().split(/ +/).shift().toLowerCase()
         const cmd = commands.get(cmdName) || Array.from(commands.values()).find((v) => v.alias.find((x) => x.toLowerCase() == cmdName)) || ""
 
         if (isOffline && cmdName && !isOwner && !cmd.isOffline) return
