@@ -3,10 +3,10 @@ const { isUrl } = require("../../lib/Function")
 
 module.exports = {
     name: "sticker",
-    alias: ["s","stiker"],
+    alias: ["s","sticker"],
     use: "<reply>",
-    desc: "Convert Image, Video, Gif To Sticker",
-    type: "convert",
+    desc: "Convierte imágenes, gif animados y videos a sticker.",
+    type: "Stickers",
     example: "\nsticker : %prefix%command --media reply\nPP sticker : %prefix%command @tag\nurl sticker : %prefix%command <url>",
     start: async(killua, m, { command, prefix, text, quoted, mime }) => {
         if (!quoted) return  m.reply(`Reply to Supported media With Caption ${prefix + command}`)
