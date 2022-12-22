@@ -32,6 +32,6 @@ module.exports = {
         }
 
         killua.sendMessage(m.from, buttonMessage, { quoted: m })
-    },
-    isQuery: true
+    }
+    
 }
