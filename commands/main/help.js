@@ -42,7 +42,7 @@ module.exports = {
                 templateButtons: templateButtons
             }
 
-            killua.sendMessage(m.from, teks, { quoted: m })
+            killua.sendMessage(m.from, templateMessage, { quoted: m })
         }
     },
     noLimit: true,
