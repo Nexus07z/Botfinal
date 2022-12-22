@@ -1,15 +1,16 @@
 const { delay, extractMessageContent } = require("@adiwajshing/baileys")
 const { isUrl } = require("../../lib/Function")
+const { fetchUrl } = require("../../lib/Function")
 
 module.exports = {
     name: "sticker",
     alias: ["s","sticker"],
-    use: "<reply>",
+    use: "<Etiqueta> <Respuesta> <Comentario>",
     desc: "Convierte imágenes, gif animados y videos a sticker.",
     type: "Stickers",
-    example: "\nsticker : %prefix%command --media reply\nPP sticker : %prefix%command @tag\nurl sticker : %prefix%command <url>",
+    example: "\nArchivo: %prefix%command <Archivo Multimedia Comentado>\nFoto de perfil: %prefix%command @tag\nLink: %prefix%command [Link del archivo]",
     start: async(killua, m, { command, prefix, text, quoted, mime }) => {
-        if (!quoted) return  m.reply(`Reply to Supported media With Caption ${prefix + command}`)
+        if (!quoted) return  m.reply(`Debes etiquetar un archivo multimedia con el comando: *${prefix + command}*`)
         if (/image|video|sticker/.test(mime)) {
             let download = await quoted.download()
             killua.sendFile(m.from, download, "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
@@ -34,7 +35,7 @@ module.exports = {
             let download = await killua.downloadMediaMessage(message)
             killua.sendFile(m.from, download, "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
         } else {
-            return m.reply(`Reply to Supported media With Caption ${prefix + command}`, m.from, { quoted: m })
+            return m.reply(`Debes etiquetar un archivo multimedia con el comando: ${prefix + command}`, m.from, { quoted: m })
         }
     }
 }
