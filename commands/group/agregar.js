@@ -7,7 +7,7 @@ module.exports = {
 	start: async(killua, m, { text, prefix, command }) => {
         if (!text) return m.reply(`Example: ${prefix + command} @tag`)
 		let users = m.quoted ? [m.quoted.sender] : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await killua.groupParticipantsUpdate(m.chat, [users], "add")
+		for (let i of users) await killua.groupParticipantsUpdate(m.from, [i], "add")
 
 		await m.reply("Suksess")
 	},
