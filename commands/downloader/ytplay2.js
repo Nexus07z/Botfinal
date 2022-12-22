@@ -6,7 +6,7 @@ module.exports = {
     desc: "Download Media From https://youtube.com",
     type: "downloader",
     example: "%prefix%command <url>ss",
-    start: async(killua, m, { text }) => {
+    start: async(killua, m, { command, prefix, text }) => {
         let respuestacomando = `${global.mess.musicacomando} *${prefix + command}*\n\n*Por ejemplo:*\n\n*${prefix + command} Green day Holiday Letra*`
         if (!text) throw respuestacomando
         let search = await yts(text)
