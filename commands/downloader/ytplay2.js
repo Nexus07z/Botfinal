@@ -8,7 +8,7 @@ module.exports = {
     example: "%prefix%command <url>ss",
     start: async(killua, m, { command, prefix, text }) => {
         let respuestacomando = `*${prefix + command}*\n\n*Por ejemplo:*\n\n*${prefix + command} Green day Holiday Letra*`
-        if (!text) throw respuestacomando
+        if (!text) return  m.reply(respuestacomando)
         let search = await yts(text)
         let segmento = search.videos[Math.floor(Math.random() * search.videos.length)]
         
