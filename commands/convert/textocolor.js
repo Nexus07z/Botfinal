@@ -15,8 +15,8 @@ module.exports = {
         if (!text) return m.reply(`${respuestacomando}`)
 
         try {       
-                    //await naze.sendMedia(m.chat, `https://xteam.xyz/attp?file&text=${text}`, '', '', m, {asSticker: true})
-                    await m.reply(`xd`)
+            await killua.sendFile(m.from, `https://api.lolhuman.xyz/api/attp?apikey=4fda13ee5ed767eef2174d23&text=${text}`,  "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
+            //await m.reply(`xd`)
         } catch (e) {
         m.reply(`error`)
         }
