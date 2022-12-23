@@ -1,6 +1,7 @@
 require("./global")
 const { generateWAMessage, areJidsSameUser, proto } = require("@adiwajshing/baileys")
-const { Simple, Collection, Function, Store } = require("./lib")
+const { Simple, Collection, Function } = require("./lib")
+const { loadMessage } = Store
 const { isUrl, isNumber } = Function
 const Func = require("./lib")
 const fs = require("fs")
