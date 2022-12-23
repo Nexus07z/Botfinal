@@ -1,4 +1,5 @@
 require("./global")
+require("./lib/Store")
 const { generateWAMessage, areJidsSameUser, proto } = require("@adiwajshing/baileys")
 const { Simple, Collection, Function, Store } = require("./lib")
 const { isUrl, isNumber } = Function
@@ -7,11 +8,7 @@ const fs = require("fs")
 const moment = require("moment-timezone")
 const chalk = require("chalk")
 const { correct } = require("./lib/Correct")
-const store = makeInMemoryStore({ logger: P().child({ level: 'silent', stream: 'store' }) })
-store.readFromFile('./session/baileys_store.json')
-setInterval(() => {
-	store.writeToFile('./session/baileys_store.json')
-}, 10000)
+
 
 global.config = JSON.parse(fs.readFileSync('./config.json'))
 global.db = JSON.parse(fs.readFileSync("./database/db.json"))
