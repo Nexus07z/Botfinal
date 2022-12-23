@@ -61,7 +61,7 @@ const connect = async () => {
     }
 
     const killua = new WAConnection(makeWASocket(connOptions))
-    //global.Store = Store.bind(killua)
+    global.Store = Store.bind(killua)
 
     killua.ev.on("creds.update", saveCreds)
 
