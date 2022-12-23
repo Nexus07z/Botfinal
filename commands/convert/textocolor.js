@@ -4,21 +4,22 @@ const { isUrl, fetchUrl } = require("../../lib/Function")
 
 module.exports = {
     name: "textocolor",
-    alias: ["attp","textcolor"],
+    alias: ["stextocolor"],
     use: "[texto]",
-    desc: "Convierte imágenes, gif animados y videos a sticker.",
+    desc: "Convierte texto en sticker.",
     type: "Stickers",
-    example: "\nArchivo a sticker: %prefix%command <Archivo Multimedia Comentado>\nFoto de perfil: %prefix%command @tag\nLink: %prefix%command [Link del archivo]",
+    example: "\n*%prefix%command ¡Hola mundo!*\n\n*%prefix%command Puedo escribir lo que sea.*",
     start: async(killua, m, { command, prefix, text, quoted, mime }) => {  
         
-        let respuestacomando = `*${prefix + command} Texto*`
+        let respuestacomando = `Falta agregar texto dejando un espacio al lado del siguiente comando: *${prefix + command}*\n\n*Por ejemplo:*\n\n*${prefix + command} ¡Hola mundo!*`
         if (!text) return m.reply(`${respuestacomando}`)
 
-        try {       
+        try {
+
             await killua.sendFile(m.from, `https://api.lolhuman.xyz/api/attp?apikey=4fda13ee5ed767eef2174d23&text=${text}`,  "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
-            //await m.reply(`xd`)
+        
         } catch (e) {
-        m.reply(`error`)
+        m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
         }
         
         
