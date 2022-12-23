@@ -1,3 +1,4 @@
+require("../../global")
 const { delay, extractMessageContent } = require("@adiwajshing/baileys")
 const { isUrl } = require("../../lib/Function")
 const { fetchUrl } = require("../../lib/Function")
@@ -12,6 +13,7 @@ module.exports = {
     start: async(killua, m, { command, prefix, text, quoted, mime }) => {
         if (!quoted) return  m.reply(`Debes etiquetar un archivo multimedia con el comando: *${prefix + command}*`)
         await m.reply(`${global.mess.msg.wait}`)
+        
         if (/image|video|sticker/.test(mime)) {
             let download = await quoted.download()
             killua.sendFile(m.from, download, "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
