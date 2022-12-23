@@ -130,7 +130,7 @@ module.exports = async (killua, m, commands, chatUpdate) => {
         if (isAntidelete && m.message && m.message.protocolMessage && m.message.protocolMessage.type == 0) {
             if (!db.chats[m.from].antidelete) return
             let key = m.message.protocolMessage.key
-            let msg = await killua.serializeM(await Store.loadMessage(key.remoteJid, key.id))
+            let msg = await killua.serializeM(await killua.loadMessage(key.remoteJid, key.id))
             let teks = `「 Message Delete Detect 」\n\n⬡ Name : ${msg.pushName}\n⬡ User : @${msg.sender.split("@")[0]}\n⬡ Date : ${moment(msg.messageTimestamp * 1000).tz(config.timezone)}\n⬡ Type : ${msg.type}\n`
             let tekss = teks.replace("GMT+0700", "")
             killua.relayMessage(m.from, msg.message, { messageId: msg.id })
