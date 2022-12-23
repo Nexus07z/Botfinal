@@ -1,7 +1,8 @@
 {
   "APIs": {
     "zenz": "https://zenzapis.xyz",
-    "apikey": "1852194d6a71"
+    "apikey": "1852194d6a71",
+    "apikeylol": "4fda13ee5ed767eef2174d23"
   },
   "options": {
     "autoRead": false,
