@@ -12,7 +12,7 @@ module.exports = {
     example: "\nArchivo: %prefix%command <Archivo Multimedia Comentado>\nFoto de perfil: %prefix%command @tag\nLink: %prefix%command [Link del archivo]",
     start: async(killua, m, { command, prefix, text, quoted, mime }) => {
         if (!quoted) return  m.reply(`Debes etiquetar un archivo multimedia con el comando: *${prefix + command}*`)
-        await m.reply(`${global.mess.msg.wait}`)
+        await m.reply(`${msg.wait}`)
         
         if (/image|video|sticker/.test(mime)) {
             let download = await quoted.download()
