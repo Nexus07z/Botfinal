@@ -1,7 +1,8 @@
-require("../../global")
+
 const { delay, extractMessageContent } = require("@adiwajshing/baileys")
 const { isUrl } = require("../../lib/Function")
 const { fetchUrl } = require("../../lib/Function")
+const { msg } = require("../../global")
 
 module.exports = {
     name: "sticker",
