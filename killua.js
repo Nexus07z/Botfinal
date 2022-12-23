@@ -1,14 +1,12 @@
 require("./global")
-require("./lib/Store")
 const { generateWAMessage, areJidsSameUser, proto } = require("@adiwajshing/baileys")
-const { Simple, Collection, Function, Store } = require("./lib")
+const { Simple, Collection, Function} = require("./lib")
 const { isUrl, isNumber } = Function
 const Func = require("./lib")
 const fs = require("fs")
 const moment = require("moment-timezone")
 const chalk = require("chalk")
 const { correct } = require("./lib/Correct")
-
 
 global.config = JSON.parse(fs.readFileSync('./config.json'))
 global.db = JSON.parse(fs.readFileSync("./database/db.json"))
