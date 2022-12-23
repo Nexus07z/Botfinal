@@ -1,4 +1,3 @@
-
 const { delay, extractMessageContent } = require("@adiwajshing/baileys")
 const { isUrl, fetchUrl } = require("../../lib/Function")
 
@@ -16,7 +15,7 @@ module.exports = {
 
         try {
 
-            await killua.sendFile(m.from, `https://api.lolhuman.xyz/api/atttp?apikey=4fda13ee5ed767eef2174d23&text=${text}`,  "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
+            await killua.sendFile(m.from, `https://api.lolhuman.xyz/api/attp?apikey=${global.apilol}&text=${text}`,  "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
         
         } catch (e) {
         m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
