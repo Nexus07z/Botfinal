@@ -12,7 +12,7 @@ module.exports = {
 
         try {
 
-            await killua.sendFile(m.from, global.api("zenz", "/creator/ttp", { text: text }, "apikey"), "", m)
+            await killua.sendFile(m.from, global.api("zenz", "/creator/ttp", { text: text }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
 
         } catch (e) {
             m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
