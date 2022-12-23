@@ -1,8 +1,6 @@
 
 const { delay, extractMessageContent } = require("@adiwajshing/baileys")
-const { isUrl } = require("../../lib/Function")
-const { fetchUrl } = require("../../lib/Function")
-const { msg } = require("../../global")
+const { isUrl, fetchUrl } = require("../../lib/Function")
 
 module.exports = {
     name: "sticker",
@@ -10,11 +8,9 @@ module.exports = {
     use: "<Respuesta> <Comentario>",
     desc: "Convierte imágenes, gif animados y videos a sticker.",
     type: "Stickers",
-    example: "\nArchivo: %prefix%command <Archivo Multimedia Comentado>\nFoto de perfil: %prefix%command @tag\nLink: %prefix%command [Link del archivo]",
+    example: "\nArchivo a sticker: %prefix%command <Archivo Multimedia Comentado>\nFoto de perfil: %prefix%command @tag\nLink: %prefix%command [Link del archivo]",
     start: async(killua, m, { command, prefix, text, quoted, mime }) => {
-        if (!quoted) return  m.reply(`Debes etiquetar un archivo multimedia con el comando: *${prefix + command}*`)
-        await m.reply(`${msg.wait}`)
-        
+        if (!quoted) return  m.reply(`Debes responder o comentar un archivo multimedia con el comando: *${prefix + command}*`)       
         if (/image|video|sticker/.test(mime)) {
             let download = await quoted.download()
             killua.sendFile(m.from, download, "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
