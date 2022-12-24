@@ -21,7 +21,7 @@ setInterval(() => {
 }, 10000)
 
 global.api = (name, path = '/', query = {}, apikeyqueryname) => (name in config.APIs ? config.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: config.APIs.apikey } : {}) })) : '')
-global.apilol = config.APIs.apikeylol
+global.apilol = (name, path = '/', query = {}, apikeyqueryname) => (name in config.APIs ? config.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: config.APIs.apikeylol } : {}) })) : '')
 const readCommands = () => {
     let dir = path.join(__dirname, "./commands")
     let dirs = fs.readdirSync(dir)
