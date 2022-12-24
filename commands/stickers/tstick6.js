@@ -12,7 +12,7 @@ module.exports = {
 
         try {
 
-            await killua.sendFile(m.from, global.apilol("lol", "/ttp6", { text: text }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
+            await killua.sendFile(m.from, global.apilol("lol", "/ttp6", { text: text }, "apikeylol"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
         
         } catch (e) {
             m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
