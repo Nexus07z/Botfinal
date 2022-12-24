@@ -12,8 +12,8 @@ module.exports = {
 
         try {
 
-            await killua.sendFile(m.from, `https://api.lolhuman.xyz/api/attp2?apikey=${global.apilol}&text=${text}`,  "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
-        
+            await killua.sendFile(m.from, global.apilol("lol", "/attp2", { text: text }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
+            
         } catch (e) {
             m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
         }   
