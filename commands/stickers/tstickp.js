@@ -14,6 +14,18 @@ module.exports = {
         try {
             
             let [a, b, c] = text.split`|`
+            var mapObj = {
+                rojo:"red",
+                naranja:"orange",
+                amarillo:"yellow",
+                verde:"green",
+                azul:"blue",
+                morado:"purple"
+             
+            }
+            b = b.replace(/rojo|naranja|amarillo|verde|azul|morado/g, function(matched){
+                return mapObj[matched];
+              })
             await killua.sendFile(m.from, global.api("zenz", "/creator/ttp", { text: a,  colour: b,  bgcolour: c }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
 
         } catch (e) {
