@@ -16,10 +16,10 @@ module.exports = {
             const zen = getRandom('mp3')
             ffmpeg(b)
             .audioBitrate(128)
-            .save('../../temp/' + zen)
+            .save('./temp/' + zen)
             .on('end', () => {
                 killua.sendFile(m.from, fs.readFileSync('./temp/' + zen), "", m).then(data => {
-                    fs.unlinkSync('../../temp/' + zen);
+                    fs.unlinkSync('./temp/' + zen);
                 })
             })
         } else {
