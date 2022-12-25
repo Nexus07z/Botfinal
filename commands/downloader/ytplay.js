@@ -21,8 +21,8 @@ module.exports = {
         caption += `⭔ UploadDate : ${i.uploadDate}\n\n`
         caption += `⭔ Desc : ${i.desc}\n`
         let buttons = [
-            {buttonId: `dl audio ${i.getAudio}`, buttonText: { displayText: 'Get Audio'}, type: 1 },
-            {buttonId: `dl ${i.getVideo}`, buttonText: { displayText: 'Get Video'}, type: 1 }
+            {buttonId: `.dl audio ${i.getAudio}`, buttonText: { displayText: 'Get Audio'}, type: 1 },
+            {buttonId: `.dl ${i.getVideo}`, buttonText: { displayText: 'Get Video'}, type: 1 }
         ]
         let buttonMessage = {
             image: { url: i.thumb },
