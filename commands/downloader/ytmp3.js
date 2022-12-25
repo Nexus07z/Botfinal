@@ -10,7 +10,7 @@ module.exports = {
     start: async(killua, m, { text }) => {
         let fetch = await fetchUrl(global.apilol("lol", "/ytaudio", { url: isUrl(text)[0] }, "apikey"))
         
-        killua.sendFile(m.from, fetch.result.link.link, "", m)
+        //killua.sendFile(m.from, fetch.result.link.link, "", m)
         killua.sendMessage(m.from, { audio: fetch.result.link.link, mimetype: 'audio/mp4' , fileName: `${fetch.result.title}.mp3` }, { quoted: m })
     },
     isQuery: true
