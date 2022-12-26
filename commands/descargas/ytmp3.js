@@ -4,7 +4,7 @@ module.exports = {
     name: "ytmp3",
     alias: ["ytaudio"],
     use: "[Link]",
-    desc: "Descargar audio de https://youtube.com",
+    desc: "Descargar un audio de https://youtube.com",
     type: "descargas",
     example: "\n*%prefix%command https://youtu.be/QQPgk_MkK4k*\n\n*%prefix%command https://www.youtube.com/watch?v=QQPgk_MkK4k*",
     start: async(killua, m, { command, prefix, text }) => {
@@ -17,7 +17,13 @@ module.exports = {
         try {
 
             let fetch = await fetchUrl(global.apilol("lol", "/ytaudio", { url: isUrl(text)[0] }, "apikey"))
-            await killua.sendFile(m.from, fetch.result.link.link, "", m)
+            let [horas, minutos, segundos] = fetch.result.duration.split`:`
+            let mediatime = parseFloat(horas*3600) + parseFloat(minutos*60) + parseFloat(segundos)
+            if (mediatime > 600) {
+                m.reply(`*La duración máxima permitida es de 10 minutos.*`)
+            } else {
+                await killua.sendFile(m.from, fetch.result.link.link, "", m)  
+            }
             
         } catch (e) {
             m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
