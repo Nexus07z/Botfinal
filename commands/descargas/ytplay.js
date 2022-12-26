@@ -19,6 +19,7 @@ module.exports = {
             let i = fetch.result
             caption += `*Título:* ${i.title}\n\n`
             caption += `*ID Youtube:* ${i.id}\n\n`
+            caption += `*Publicado por:* ${i.uploader}\n\n`
             caption += `*Duración:* ${i.duration}\n\n`
             caption += `*Link:* https://youtu.be/${i.id}\n`
             
