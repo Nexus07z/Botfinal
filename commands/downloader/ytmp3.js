@@ -7,7 +7,7 @@ module.exports = {
     desc: "Descargar audio de https://youtube.com",
     type: "descargas",
     example: "%prefix%command <url>",
-    start: async(killua, m, { text }) => {
+    start: async(killua, m, { command, prefix, text }) => {
         
         let respuestacomando = `Falta agregar el link dejando un espacio al lado del siguiente comando: *${prefix + command}*\n\n*Por ejemplo:*\n\n*${prefix + command} https://youtu.be/QQPgk_MkK4k*`
         if (!text) return m.reply(`${respuestacomando}`)
