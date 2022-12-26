@@ -1,10 +1,10 @@
 const { fetchUrl, isUrl } = require("../../lib/Function")
 
 module.exports = {
-    name: "ytmp3",
-    alias: ["ytaudio"],
+    name: "ytmp4",
+    alias: ["ytvideo"],
     use: "[Link]",
-    desc: "Descargar audio de https://youtube.com",
+    desc: "Descargar video de https://youtube.com",
     type: "descargas",
     example: "\n*%prefix%command https://youtu.be/QQPgk_MkK4k *\n\n*%prefix%command https://www.youtube.com/watch?v=QQPgk_MkK4k *",
     start: async(killua, m, { command, prefix, text }) => {
@@ -16,7 +16,7 @@ module.exports = {
 
         try {
 
-            let fetch = await fetchUrl(global.apilol("lol", "/ytaudio", { url: isUrl(text)[0] }, "apikey"))
+            let fetch = await fetchUrl(global.apilol("lol", "/ytvideo", { url: isUrl(text)[0] }, "apikey"))
             await killua.sendFile(m.from, fetch.result.link.link, "", m)
             
         } catch (e) {
