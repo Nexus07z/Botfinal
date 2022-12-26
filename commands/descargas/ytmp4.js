@@ -13,11 +13,17 @@ module.exports = {
         if (!text) return m.reply(`${respuestacomando}`)
         if (!isUrl(text)) return m.reply(`${respuestacomando}`)
         if (!text.includes('youtu.be') && !text.includes('youtube')) return m.reply(`*El link tiene que ser de youtube.*`)
-
+        
         try {
 
             let fetch = await fetchUrl(global.apilol("lol", "/ytvideo", { url: isUrl(text)[0] }, "apikey"))
-            await killua.sendFile(m.from, fetch.result.link.link, "", m)
+            let [horas, minutos, segundos] = fetch.result.duration.split`:`
+            let mediatime = parseFloat(horas*3600) + parseFloat(minutos*60) + parseFloat(segundos)
+            if (mediatime > 600) {
+                m.reply(`*La duración máxima permitida es de 10 minutos.*`)
+            } else {
+                await killua.sendFile(m.from, fetch.result.link.link, "", m) 
+            }
             
         } catch (e) {
             m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
