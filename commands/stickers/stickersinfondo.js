@@ -10,7 +10,7 @@ module.exports = {
     use: "<Respuesta>",
     desc: "Convertir una imagen en un sticker sin fondo.",
     type: "Stickers",
-    example: `%prefix%command <Respuesta a multimedia>`,
+    example: `\n*%prefix%command <Respuesta multimedia>*\n\n*%prefix%command <Respuesta multimedia>*`,
     start: async(killua, m, { command, prefix, quoted, mime, text }) => {
         
         if (/image/.test(mime)) {
@@ -18,7 +18,7 @@ module.exports = {
                 
                 let cargador = await killua.downloadAndSaveMediaMessage(quoted)
                 let link = await TelegraPh(cargador)
-                await killua.sendFile(m.from, global.apilol("lol", "/removebg", { img: link }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
+                await killua.sendFile(m.from, global.apilol("lol", "/removebg", { img: link }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname })
             
             } catch (e) {
                 m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
@@ -34,7 +34,7 @@ module.exports = {
             }
 
         }   else {
-                let respuestacomando = `Debes responder o comentar un archivo multimedia con el comando: *${prefix + command}*`
+                let respuestacomando = `Debes responder o comentar una imagen con el comando: *${prefix + command}*`
                 return m.reply(`${respuestacomando}`)
         }
     }
