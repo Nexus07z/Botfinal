@@ -16,8 +16,8 @@ module.exports = {
             
             let cargador = await killua.downloadAndSaveMediaMessage(quoted)
             let link = await TelegraPh(cargador)
-            m.reply(`${link}`)
-
+            await killua.sendFile(m.from, global.apilol("lol", "/removebg", { img: link }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
+    
 
         } else if (isUrl(text)) {
             killua.sendFile(m.from, global.apilol("lol", "/removebg", { img: isUrl(text)[0] }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
