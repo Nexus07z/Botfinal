@@ -1,6 +1,7 @@
 const { getRandom, isUrl } = require("../../lib/Function")
 const request = require('request')
 const fs = require('fs')
+const ffmpeg = require('fluent-ffmpeg')
 
 module.exports = {
     name: "stickersinfondo",
