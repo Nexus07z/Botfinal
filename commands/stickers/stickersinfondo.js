@@ -7,22 +7,35 @@ const ffmpeg = require('fluent-ffmpeg')
 module.exports = {
     name: "stickersinfondo",
     alias: ["stsinfondo"],
-    use: "<reply>",
-    desc: "Convert Image To Sticker With No Background",
-    type: "convert",
-    example: `%prefix%command --image reply`,
+    use: "<Respuesta>",
+    desc: "Convertir una imagen en un sticker sin fondo.",
+    type: "Stickers",
+    example: `%prefix%command <Respuesta a multimedia>`,
     start: async(killua, m, { command, prefix, quoted, mime, text }) => {
+        
         if (/image/.test(mime)) {
+            try {
+                
+                let cargador = await killua.downloadAndSaveMediaMessage(quoted)
+                let link = await TelegraPh(cargador)
+                await killua.sendFile(m.from, global.apilol("lol", "/removebg", { img: link }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
             
-            let cargador = await killua.downloadAndSaveMediaMessage(quoted)
-            let link = await TelegraPh(cargador)
-            await killua.sendFile(m.from, global.apilol("lol", "/removebg", { img: link }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
-    
+            } catch (e) {
+                m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
+            }
 
         } else if (isUrl(text)) {
-            killua.sendFile(m.from, global.apilol("lol", "/removebg", { img: isUrl(text)[0] }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
+            try {
+
+                await killua.sendFile(m.from, global.apilol("lol", "/removebg", { img: isUrl(text)[0] }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
+            
+            } catch (e) {
+                m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
+            }
+
         }   else {
-            return m.reply(`Reply to Supported media With Caption ${prefix + command}`, m.from, { quoted: m })
+                let respuestacomando = `Debes responder o comentar un archivo multimedia con el comando: *${prefix + command}*`
+                return m.reply(`${respuestacomando}`)
         }
     }
 }
