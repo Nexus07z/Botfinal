@@ -3,8 +3,8 @@ const request = require('request')
 const fs = require('fs')
 
 module.exports = {
-    name: "stickersinfondo1",
-    alias: ["stsinfondo1"],
+    name: "stickersinfondo",
+    alias: ["stsinfondo"],
     use: "<reply>",
     desc: "Convert Image To Sticker With No Background",
     type: "convert",
@@ -12,9 +12,9 @@ module.exports = {
     start: async(killua, m, { command, prefix, quoted, mime, text }) => {
         if (/image/.test(mime)) {
             let download = await killua.downloadAndSaveMediaMessage(quoted)
-            file_name = getRandom('.png')
+            file_name = getRandom('jpg')
             request({
-                url: global.apilol("lol", "/removebg", {}, "apikey"),
+                url: `https://api.lolhuman.xyz/api/removebg?apikey=4fda13ee5ed767eef2174d23`,
                 method: 'POST',
                 formData: {
                     "img": fs.createReadStream(download)
