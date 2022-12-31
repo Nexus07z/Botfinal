@@ -3,8 +3,8 @@ const request = require('request')
 const fs = require('fs')
 
 module.exports = {
-    name: "stickersinfondo",
-    alias: ["stsinfondo"],
+    name: "stickersinfondo1",
+    alias: ["stsinfondo1"],
     use: "<reply>",
     desc: "Convert Image To Sticker With No Background",
     type: "convert",
