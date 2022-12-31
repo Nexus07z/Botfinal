@@ -19,7 +19,13 @@ module.exports = {
                 let cargador = await killua.downloadAndSaveMediaMessage(quoted)
                 let link = await TelegraPh(cargador)
                 await killua.sendFile(m.from, global.apilol("lol", "/removebg", { img: link }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname })
-            
+                
+                
+                let media = await quoted.download()
+                let encmedia = await naze.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                await fs.unlinkSync(encmedia)
+
+
             } catch (e) {
                 m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
             }
