@@ -12,7 +12,7 @@ module.exports = {
     start: async(killua, m, { command, prefix, quoted, mime, text }) => {
         if (/image/.test(mime)) {
             let download = await killua.downloadAndSaveMediaMessage(quoted)
-            file_name = getRandom('png')
+            file_name = getRandom('.png')
             request({
                 url: global.apilol("lol", "/removebg", {}, "apikey"),
                 method: 'POST',
