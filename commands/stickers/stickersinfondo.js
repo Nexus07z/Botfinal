@@ -14,10 +14,10 @@ module.exports = {
             let download = await killua.downloadAndSaveMediaMessage(quoted)
             file_name = getRandom('jpg')
             request({
-                img: global.apilol("lol", "/removebg", {}, "apikey"),
+                url: global.apilol("lol", "/removebg", {}, "apikey"),
                 method: 'POST',
                 formData: {
-                    "sampleFile": fs.createReadStream(download)
+                    "img": fs.createReadStream(download)
                 },
                 encoding: "binary"
             }, async function(error, response, body) {
