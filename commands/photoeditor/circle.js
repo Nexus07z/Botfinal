@@ -3,11 +3,11 @@ const request = require('request')
 const fs = require('fs')
 
 module.exports = {
-    name: "circle",
-    alias: ["circle"],
-    use: "<reply>",
-    desc: "Photo Image Editor",
-    type: "photoeditor",
+    name: "circulo",
+    alias: ["circular"],
+    use: "<Respuesta>",
+    desc: "Recorta de manera circular una imagen.",
+    type: "Edición de fotos",
     example: `%prefix%command --image reply`,
     start: async(killua, m, { command, prefix, quoted, mime }) => {
         if (!quoted) return  m.reply(`Reply to Supported media With Caption ${prefix + command}`)
