@@ -8,7 +8,7 @@ module.exports = {
     name: "stickersinfondo",
     alias: ["stsinfondo"],
     use: "<Respuesta>",
-    desc: "Convertir una imagen en un sticker sin fondo.",
+    desc: "Convierte una imagen en un sticker sin fondo.",
     type: "Stickers",
     example: `\n*%prefix%command <Respuesta multimedia>*\n\n*%prefix%command <Respuesta multimedia>*`,
     start: async(killua, m, { command, prefix, quoted, mime, text }) => {
