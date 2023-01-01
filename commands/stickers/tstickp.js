@@ -1,7 +1,7 @@
 module.exports = {
     name: "tstickp",
     alias: ["ttpp"],
-    use: "[texto|color|colorfondo]",
+    use: "[Texto|color|colorfondo]",
     desc: "Convierte texto con colores personalizados en un sticker.",
     type: "Stickers",
     example: "\n*%prefix%command Hola mundo|blanco|negro*\n\n*%prefix%command Puedo escribir lo que sea.|rojo|turquesa*",

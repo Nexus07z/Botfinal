@@ -1,7 +1,7 @@
 module.exports = {
     name: "stickanim",
     alias: ["attp"],
-    use: "[texto]",
+    use: "[Texto]",
     desc: "Convierte texto en un sticker animado.",
     type: "Stickers",
     example: "\n*%prefix%command Hola mundo*\n\n*%prefix%command Puedo escribir lo que sea.*",

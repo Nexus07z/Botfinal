@@ -1,7 +1,7 @@
 module.exports = {
     name: "tstick2",
     alias: ["ttp2"],
-    use: "[texto]",
+    use: "[Texto]",
     desc: "Convierte texto en un sticker.",
     type: "Stickers",
     example: "\n*%prefix%command Hola mundo*\n\n*%prefix%command Puedo escribir lo que sea.*",
