@@ -10,7 +10,7 @@ module.exports = {
     use: "<Respuesta>",
     desc: "Convierte una imagen en un sticker sin fondo.",
     type: "Stickers",
-    example: `\n*%prefix%command <Respuesta multimedia>*\n\n*%prefix%command [Link]*`,
+    example: `\n*%prefix%command <Respuesta multimedia>*\n\n*%prefix%command https://telegra.ph/file/d7628ed80228711f4a95b.jpg*`,
     start: async(killua, m, { command, prefix, quoted, mime, text }) => {
         
         if (/image/.test(mime)) {
@@ -18,7 +18,7 @@ module.exports = {
                 
                 let cargador = await killua.downloadAndSaveMediaMessage(quoted)
                 let link = await TelegraPh(cargador)
-                await killua.sendFile(m.from, global.apilol("lol", "/removebg", { img: link }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname })
+                await killua.sendFile(m.from, global.apilol("lol", "/removebg", { img: link }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
 
             } catch (e) {
                 m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
