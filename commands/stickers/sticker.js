@@ -46,18 +46,10 @@ module.exports = {
                     await delay(1000)
                     killua.sendFile(m.from, url, "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
                 }
-                
+
             } catch (e) {
                 m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
             }
-        } else if (quoted.type == "templateMessage") {
-            let message = quoted.imageMessage || quoted.videoMessage
-            let download = await killua.downloadMediaMessage(message)
-            killua.sendFile(m.from, download, "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
-        } else if (quoted.type == "buttonsMessage") {
-            let message = quoted.imageMessage || quoted.videoMessage
-            let download = await killua.downloadMediaMessage(message)
-            killua.sendFile(m.from, download, "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
         } else {
             return m.reply(`Debes responder o comentar un archivo multimedia con el comando: *${prefix + command}*`, m.from, { quoted: m })
         }
