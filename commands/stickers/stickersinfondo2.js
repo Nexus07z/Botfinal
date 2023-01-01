@@ -19,7 +19,7 @@ module.exports = {
             try {
                 
                 let cargador = await killua.downloadAndSaveMediaMessage(quoted)
-                keyrmbg = 'iWVtDDPrqmy9oWKDnRR7wPpp'
+                keyrmbg = 'Dg1RTQmpTa7S9QbzDUWex1SJ'
                 ranp = getRandom('.png')
                 await removeBackgroundFromImageFile({ path: cargador, apiKey: keyrmbg, size: 'auto', type: 'auto', ranp })
                     fs.unlinkSync(cargador)
