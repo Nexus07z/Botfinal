@@ -21,12 +21,12 @@ module.exports = {
                 let cargador = await killua.downloadAndSaveMediaMessage(quoted)
                 keyrmbg = 'iWVtDDPrqmy9oWKDnRR7wPpp'
                 ranp = getRandom('.png')
-                await removeBackgroundFromImageFile({ path: cargador, apiKey: keyrmbg, size: 'auto', type: 'auto', ranp }).then(res => {
+                await removeBackgroundFromImageFile({ path: cargador, apiKey: keyrmbg, size: 'auto', type: 'auto', ranp })
                     fs.unlinkSync(cargador)
                     let buffer = Buffer.from(res.base64img, 'base64')
                     naze.sendImageAsSticker(m.chat, buffer, m, { packname: global.packname, author: global.author })
                     fs.unlinkSync(buffer)
-                })
+                
                 
 
             } catch (e) {
