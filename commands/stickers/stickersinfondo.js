@@ -10,7 +10,7 @@ module.exports = {
     use: "<Respuesta>",
     desc: "Convierte una imagen en un sticker sin fondo.",
     type: "Stickers",
-    example: `\n*%prefix%command <Respuesta multimedia>*\n\n*%prefix%command <Respuesta multimedia>*`,
+    example: `\n*%prefix%command <Respuesta multimedia>*\n\n*%prefix%command [Link]*`,
     start: async(killua, m, { command, prefix, quoted, mime, text }) => {
         
         if (/image/.test(mime)) {
