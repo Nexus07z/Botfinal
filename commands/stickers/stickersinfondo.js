@@ -1,8 +1,5 @@
-const { getRandom, isUrl } = require("../../lib/Function")
+const { isUrl } = require("../../lib/Function")
 let { TelegraPh } = require('../../lib/Uploader')
-const request = require('request')
-const fs = require('fs')
-const ffmpeg = require('fluent-ffmpeg')
 
 module.exports = {
     name: "stickersinfondo",
