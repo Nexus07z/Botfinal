@@ -14,7 +14,7 @@ module.exports = {
         if (/image/.test(mime)) {
             try {
                 let download = await killua.downloadAndSaveMediaMessage(quoted, filename = getRandom2())
-                file_name = getRandom2('jpg')
+                file_name = getRandom2('.jpg')
                 request({
                     url: `https://api.lolhuman.xyz/api/editor/roundimage?apikey=4fda13ee5ed767eef2174d23`,
                     method: 'POST',
