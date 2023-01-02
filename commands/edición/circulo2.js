@@ -16,7 +16,7 @@ module.exports = {
                 let download = await killua.downloadAndSaveMediaMessage(quoted)
                 file_name = getRandom('jpg')
                 request({
-                    url: global.apilol("lol", "/editor/roundimage", {}, "apikey"),
+                    url: `https://api.lolhuman.xyz/api/editor/roundimage?apikey=4fda13ee5ed767eef2174d23`,
                     method: 'POST',
                     formData: {
                         "img": fs.createReadStream(download)
