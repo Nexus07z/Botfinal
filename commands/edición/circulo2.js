@@ -1,4 +1,4 @@
-const { getRandom } = require("../../lib/Function")
+const { getRandom, getRandom2 } = require("../../lib/Function")
 const request = require('request')
 const fs = require('fs')
 
@@ -13,7 +13,7 @@ module.exports = {
 
         if (/image/.test(mime)) {
             try {
-                let download = await killua.downloadAndSaveMediaMessage(quoted)
+                let download = await killua.downloadAndSaveMediaMessage(quoted,, filename = getRandom2())
                 file_name = getRandom2('jpg')
                 request({
                     url: `https://api.lolhuman.xyz/api/editor/roundimage?apikey=4fda13ee5ed767eef2174d23`,
