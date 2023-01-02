@@ -1,6 +1,5 @@
-const { getRandom, getRandom2 } = require("../../lib/Function")
-const request = require('request')
-const fs = require('fs')
+const { isUrl } = require("../../lib/Function")
+let { TelegraPh } = require('../../lib/Uploader')
 
 module.exports = {
     name: "circulo2",
@@ -8,33 +7,32 @@ module.exports = {
     use: "<Respuesta>",
     desc: "Recorta de manera circular una imagen.",
     type: "Edición de fotos",
-    example: `\n*%prefix%command <Respuesta multimedia>*`,
-    start: async(killua, m, { command, prefix, quoted, mime }) => {
+    example: `\n*%prefix%command <Respuesta multimedia>*\n\n*%prefix%command https://telegra.ph/file/d7628ed80228711f4a95b.jpg*`,
+    start: async(killua, m, { command, prefix, quoted, mime, text }) => {
 
         if (/image/.test(mime)) {
             try {
-                let download = await killua.downloadAndSaveMediaMessage(quoted)
-                file_name = getRandom2('.jpg')
-                request({
-                    url: `https://api.lolhuman.xyz/api/editor/roundimage?apikey=4fda13ee5ed767eef2174d23`,
-                    method: 'POST',
-                    formData: {
-                        "img": fs.createReadStream(download)
-                    },
-                    encoding: "binary"
-                }, async function(error, response, body) {
-                    fs.unlinkSync(download)
-                    fs.writeFileSync(file_name, body, "binary")
-                    ini_buff = fs.readFileSync(file_name)
-                    await killua.sendFile(m.from, ini_buff, "", m).then(() => {
-                        fs.unlinkSync(file_name)
-                    })
-                })
+                
+                let cargador = await killua.downloadAndSaveMediaMessage(quoted)
+                let link = await TelegraPh(cargador)
+                await killua.sendFile(m.from, global.apilol("lol", "/editor/roundimage", { img: link }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
+
             } catch (e) {
                 m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
             }
-        } else {
-            return m.reply(`Debes responder o comentar una imagen con el comando: *${prefix + command}*`, m.from, { quoted: m })
+
+        } else if (isUrl(text)) {
+            try {
+
+                await killua.sendFile(m.from, global.apilol("lol", "/editor/roundimage", { img: isUrl(text)[0] }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
+            
+            } catch (e) {
+                m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
+            }
+
+        }   else {
+                let respuestacomando = `Debes responder o comentar una imagen con el comando: *${prefix + command}*`
+                return m.reply(`${respuestacomando}`)
         }
     }
 }
