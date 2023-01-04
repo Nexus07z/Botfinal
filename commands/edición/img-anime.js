@@ -15,7 +15,7 @@ module.exports = {
                 
                 let cargador = await killua.downloadAndSaveMediaMessage(quoted)
                 let link = await TelegraPh(cargador)
-                await killua.sendFile(m.from, global.apilol("lol", "/imagetoanime", { img: link }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
+                await killua.sendFile(m.from, global.apilol("lol", "/imagetoanime", { img: link }, "apikey"), "", m)
 
             } catch (e) {
                 m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
@@ -24,7 +24,7 @@ module.exports = {
         } else if (isUrl(text)) {
             try {
 
-                await killua.sendFile(m.from, global.apilol("lol", "/imagetoanime", { img: isUrl(text)[0] }, "apikey"), "", m, { asSticker: true, author: config.exif.author, packname: config.exif.packname, categories: ['😄','😊'] })
+                await killua.sendFile(m.from, global.apilol("lol", "/imagetoanime", { img: isUrl(text)[0] }, "apikey"), "", m)
             
             } catch (e) {
                 m.reply(`*Ocurrió un problema, puedes intentarlo nuevamente más tarde.*`)
